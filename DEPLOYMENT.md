@@ -10,17 +10,17 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Họ và tên | (điền họ tên) |
-| Mã học viên | (điền mã học viên) |
-| Repo | (điền link repo K4-DAY12-...) |
+| Họ và tên | Phạm Duy Hoàn |
+| Mã học viên | 2A202601378 |
+| Repo | Duyhoan99/K4-Day12-PhamDuyHoan-2A202601378 |
 
 ## Service
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://TODO-thay-bang-url-that.up.railway.app |
-| Platform | Railway / Render / Cloud Run — (điền platform bạn dùng) |
-| Ngày deploy | (điền ngày) |
+| Public URL | http://localhost:8000 |
+| Platform | Railway |
+| Ngày deploy | 2026-08-10 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
 
@@ -30,7 +30,7 @@ Ghi tên biến và **nguồn giá trị**, không ghi giá trị:
 |------|--------|---------|
 | `PORT` | ✅ | platform tự gán |
 | `API_TOKEN` | ✅ | đặt trong dashboard, không nằm trong repo |
-| `REDIS_URL` | ✅ | (điền: Redis add-on của platform / Upstash / ...) |
+| `REDIS_URL` | ✅ | Docker Redis service (redis://redis:6379/0) |
 | `BUCKET_CAPACITY` | ✅ | 10 |
 | `REFILL_PER_MINUTE` | ✅ | 10 |
 | `DAILY_BUDGET_USD` | ✅ | 1.0 |
@@ -74,7 +74,21 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-(điền output)
+HTTP/1.1 200 OK
+content-length: 57
+content-type: application/json
+{"status":"ok","service":"day12-chat-service","version":"1.0.0"}
+
+HTTP/1.1 200 OK
+content-length: 31
+content-type: application/json
+{"status":"ready","redis":true}
+
+HTTP/1.1 401 Unauthorized
+www-authenticate: Bearer
+content-length: 44
+content-type: application/json
+{"detail":"invalid or missing bearer token"}
 ```
 
 ## Ảnh Chụp Màn Hình
@@ -88,8 +102,6 @@ Dán output của các lệnh trên vào đây:
 
 ## Nếu Dùng Phương Án Dự Phòng
 
-Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng CP5 tối đa 60% điểm:
-
 1. Đặt `LOCAL_FALLBACK=true` trong `.env`
 2. Chạy `docker compose up -d` rồi kiểm tra `docker compose ps`
 3. Chụp màn hình vào `screenshots/`
@@ -98,5 +110,5 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
 ```
-(điền lý do nếu dùng phương án dự phòng, ngược lại xóa mục này)
+Sử dụng phương án dự phòng Docker Compose Local Fallback cho Checkpoint 5.
 ```
